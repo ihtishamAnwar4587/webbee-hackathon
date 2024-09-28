@@ -23,3 +23,7 @@ Route::get('/', function () {
 Route::get('/hell', static function () {
     dd("here the hell you are");
 });
+
+Route::get('/another-route', static function() {
+    dd('here the hell you are in another route');
+});
