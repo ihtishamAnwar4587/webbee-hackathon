@@ -13,7 +13,7 @@ jobs:
       - name: Install Dependencies
         run: composer install
       - name: migrate
-        run: php artisan migrate
+        run: php artisan migrate --force
 
       - name: deploy file to server
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
