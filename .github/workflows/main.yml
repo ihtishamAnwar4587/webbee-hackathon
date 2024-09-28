@@ -3,23 +3,23 @@ on:
     branches:
       - main
 jobs:
-    web-deploy:
-      runs-on: ubuntu-latest
-      name: build&deploy
+  web-deploy:
+    runs-on: ubuntu-latest
+    name: build&deploy
     steps:
-        - name: Checkout
-          uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
-        - name: Install Dependencies
-          run: composer install
-        - name: migrate
-          run: php artisan migrate
+      - name: Install Dependencies
+        run: composer install
+      - name: migrate
+        run: php artisan migrate
 
-        - name: deploy file to server
-          uses: wlixcc/SFTP-Deploy-Action@v1.2.4
-          with:
-            username: 'root'
-            server: '${{ secrets.SERVER_IP }}'
-            ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-            remote_path: '/var/www/html/webbee-hackathon'
-            sftpArgs: '-o ConnectTimeout=5'
+      - name: deploy file to server
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          username: 'root'
+          server: '${{ secrets.SERVER_IP }}'
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          remote_path: '/var/www/html/webbee-hackathon'
+          sftpArgs: '-o ConnectTimeout=5'
