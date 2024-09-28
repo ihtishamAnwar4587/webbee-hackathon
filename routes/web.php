@@ -19,7 +19,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/hell', static function () {
-    dd("here the hell you are");
-});
